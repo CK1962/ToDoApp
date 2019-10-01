@@ -12,7 +12,7 @@
       <div class="view">
         <label>{{this.todo.title}}</label>
         <div class="float-right">
-          <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            <confirmation-modal [todo] = 'todo'></confirmation-modal>
         </div>
       </div>
     </li>

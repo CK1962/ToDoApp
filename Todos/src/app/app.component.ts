@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ITodo}
+import { ITodo} from './interfaces/itodo';
+import { TodoService } from 'src/services/todo.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,13 @@ export class AppComponent {
   todoTitle: string;
   todoId: number;
 
+  constructor(private todoService: TodoService) {}
+
   ngOnInit() {
     this.todoId = 1;
     this.todoTitle = "";
-    this.todoList = [
-      // example of how to make an item in todo list
-      {
+    this.todoList = this.todoService.todoList;
+    this.todoList.push({
         id: this.todoId,
         isDoing: false,
         isEditing: false,
@@ -25,26 +27,26 @@ export class AppComponent {
         isDone: false,
       dateAdded: new Date() }
 
-    ];
+    );
   }
 // adds a todo to our list
 addTodo():void {
   this.todoId++;
-
-  this.todoList.push({
+  const todo = {
+    id: this.todoId,
     title: this.todoTitle,
     isDone: false,
     isDoing: false,
     isEditing: false,
     dateAdded: new Date()
-  });
+  };
    // resets our todoTitle variable to an empty string
+   this.todoService.add(todo);
    this.todoTitle = "";
 }
 
   // a method to delete an item
-  deleteTodo(todo:any) {
-    const index = this.todoList.findIndex(todoItem => todoItem === todo);
-    this.todoList.splice(index, 1);
+  deleteTodo(todo:ITodo) {
+   this.todoService.delete(todo);
   };
 }
