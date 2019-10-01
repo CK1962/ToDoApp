@@ -18,7 +18,7 @@ export class AppComponent {
   ngOnInit() {
     this.todoId = 1;
     this.todoTitle = "";
-    this.todoList = this.todoService.todoList;
+    this.todoList = this.todoService.getTodoItems();
     this.todoList.push({
         id: this.todoId,
         isDoing: false,

@@ -10,7 +10,12 @@ export class TodoService {
 
   constructor() { }
 
-  add(todo: ITodo) {
+  getTodoItems()
+  {
+    return this.todoList;
+  }
+
+    add(todo: ITodo) {
     this.todoList.push(todo);
   }
 
