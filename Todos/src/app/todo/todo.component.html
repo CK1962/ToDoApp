@@ -1,22 +1,22 @@
 <h1 align="center">Todo List</h1>
-<input type="text" class="todo-input" placeholder="Add net todo here" [(ngModel)]="todoTitle" />
 
-<div class ="btn-row">
-        <button type="btn btn-primary btn-sm" [routerLink]= "[' ']">All</button>
-        <button type="btn btn-primary btn-sm" [routerLink]= "[' ', 'done']">Done</button>
-        <button type="btn btn-primary btn-sm" [routerLink]= "[' ', 'undone']">To do</button>
+<div class="btn-row">
+  <button class="btn btn-primary btn-sm" [routerLink]="['']">All</button>
+  <button class="btn btn-primary btn-sm" [routerLink]="['', 'done']">Done</button>
+  <button class="btn btn-primary btn-sm" [routerLink]="['', 'undone']">To do</button>
 </div>
 <ul align="center" class="list-group">
-  <li class="list-group-item" *ngFor="let todo of filteredArray"[class.done]="todo.isDone">
-      <div class="view">
-        <label>{{this.todo.title}}</label>
+  <li class="list-group-item" *ngFor="let todo of filteredArray" [class.done]="todo.isDone">
+    <div class="view">
+      <label>{{this.todo.title}}</label>
 
-        <div class="float-right">
-            <confirmation-modal [todo] = 'todo'></confirmation-modal>
-        </div>
+      <div class="float-right">
+        <confirmation-modal [todo]='todo'></confirmation-modal>
+        <button type="button" (click)=moveToDone(todo) class="btn btn-success btn-sm">Move To Done</button>
       </div>
-    </li>
-  </ul>
-  <button type="button" (click)= deleteTodo(todo) class="btn btn-danger btn-sm">Delete</button>
-  <input type="text" class="todo-input" placeholder="Add next todo here" [(ngModel)]="todoTitle" (keyup.enter)=addTodo()>
+    </div>
 
+  </li>
+</ul>
+
+<input type="text" class="todo-input" placeholder="Add next todo here" [(ngModel)]="todoTitle" (keyup.enter)=addTodo()>
