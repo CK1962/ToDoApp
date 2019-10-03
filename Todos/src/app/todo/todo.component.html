@@ -1,6 +1,7 @@
 <h1 align="center">Todo List</h1>
 <input type="text" class="todo-input" placeholder="Add net todo here" [(ngModel)]="todoTitle"
 <div class ="btn-row">
+        <button type="btn btn-primary btn-sm" [routerLink]= "[' ']">All</button>
         <button type="btn btn-primary btn-sm" [routerLink]= "[' ', 'done']">Done</button>
         <button type="btn btn-primary btn-sm" [routerLink]= "[' ', 'undone']">To do</button>
 </div>
