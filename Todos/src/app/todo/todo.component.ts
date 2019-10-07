@@ -36,28 +36,28 @@ export class TodoComponent implements OnInit {
       );
     }
   }
-    // adds a todo to our list
-    addTodo(): void {
-      this.todoId++;
-      const todo = {
-        id: this.todoId,
-        title: this.todoTitle,
-        isDone: false,
-        isDoing: false,
-        isEditing: false,
-        dateAdded: new Date()
-      };
-      // resets our todoTitle variable to an empty string
-      this.TodoService.add(todo);
-      this.todoTitle = "";
-    }
-
-    // a method to delete an item
-    deleteTodo(todo: ITodo) {
-      this.TodoService.delete(todo);
+  // adds a todo to our list
+  addTodo(): void {
+    this.todoId++;
+    const todo = {
+      id: this.todoId,
+      title: this.todoTitle,
+      isDone: false,
+      isDoing: false,
+      isEditing: false,
+      dateAdded: new Date()
     };
-
-    moveToDone(todo: ITodo){
-      todo.isDone= true;
-    }
+    // resets our todoTitle variable to an empty string
+    this.TodoService.add(todo);
+    this.todoTitle = "";
   }
+
+  // a method to delete an item
+  deleteTodo(todo: ITodo) {
+    this.TodoService.delete(todo);
+  };
+
+  moveToDone(todo: ITodo) {
+    todo.isDone = true;
+  }
+}
