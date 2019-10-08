@@ -7,6 +7,7 @@ import { ITodo } from '../interfaces/itodo';
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
+  
 })
 export class TodoComponent implements OnInit {
   title = "Todos";
