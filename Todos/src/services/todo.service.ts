@@ -23,4 +23,8 @@ export class TodoService {
     const index = this.todoList.indexOf(todo, 0);
     this.todoList.splice(index,1);
   }
+
+  getAll(): ITodo[] {
+    return this.todoList;
+  }
 }
